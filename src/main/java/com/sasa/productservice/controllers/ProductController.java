@@ -27,7 +27,7 @@ public class ProductController {
     }
     @GetMapping("/product")
     public String getAllProducts() {
-       return "Hello Saga";
+       return "Hello Sagar";
     }
     public void createProduct() {
 
