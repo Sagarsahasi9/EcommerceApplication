@@ -8,6 +8,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class FakeStoreProductResponseDto {
+    //Attributes same as fakestore attribute
     private Long id;
     private String title;
     private String price;
@@ -17,6 +18,7 @@ public class FakeStoreProductResponseDto {
 
     public Product toProduct()
     {
+
         Product product = new Product();
         product.setId(this.id);
         product.setTitle(this.title);

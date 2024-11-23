@@ -15,7 +15,15 @@ public class ProductResponseDto {
     private String categoryName;
 
     public static ProductResponseDto from(Product product) {
-        //to be continued
-        return null;
+        ProductResponseDto responseDto = new ProductResponseDto();
+        responseDto.setId(product.getId());
+        responseDto.setDescription(product.getDescription());
+        responseDto.setPrice(product.getPrice());
+        responseDto.setImageUrl(product.getImageUrl());
+        responseDto.setTitle(product.getTitle());
+        responseDto.setCategoryName(product.getCategory().getName());
+
+
+        return responseDto;
     }
 }
