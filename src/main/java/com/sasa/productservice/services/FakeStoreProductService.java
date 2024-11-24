@@ -5,13 +5,16 @@ import com.sasa.productservice.dtos.FakeStoreProductRequestDto;
 import com.sasa.productservice.dtos.FakeStoreProductResponseDto;
 import com.sasa.productservice.models.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Service
+@Service("fakeStoreService")
 public class FakeStoreProductService implements ProductService{
 
     private RestTemplate restTemplate;
@@ -63,6 +66,24 @@ public class FakeStoreProductService implements ProductService{
         return responseDto.toProduct();
 
 
+    }
+
+    @Override
+    public Product partialUpdate(Long id, Product product) {
+        HttpEntity<Product> httpEntity =
+                new HttpEntity<>(product); // Add dto object here
+
+        ResponseEntity<FakeStoreProductResponseDto> responseEntity =
+                restTemplate.exchange(
+                        "https://fakestoreapi.com/products" + id,
+                        HttpMethod.PATCH,
+                        httpEntity, // use dto here
+                        FakeStoreProductResponseDto.class
+                );
+
+        FakeStoreProductResponseDto responseDto = responseEntity.getBody();
+
+        return null;
     }
 
 
