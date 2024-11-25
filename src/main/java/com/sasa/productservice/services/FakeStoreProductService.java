@@ -70,18 +70,18 @@ public class FakeStoreProductService implements ProductService{
 
     @Override
     public Product partialUpdate(Long id, Product product) {
-        HttpEntity<Product> httpEntity =
-                new HttpEntity<>(product); // Add dto object here
-
-        ResponseEntity<FakeStoreProductResponseDto> responseEntity =
-                restTemplate.exchange(
-                        "https://fakestoreapi.com/products" + id,
-                        HttpMethod.PATCH,
-                        httpEntity, // use dto here
-                        FakeStoreProductResponseDto.class
-                );
-
-        FakeStoreProductResponseDto responseDto = responseEntity.getBody();
+//        HttpEntity<Product> httpEntity =
+//                new HttpEntity<>(product); // Add dto object here
+//
+//        ResponseEntity<FakeStoreProductResponseDto> responseEntity =
+//                restTemplate.exchange(
+//                        "https://fakestoreapi.com/products" + id,
+//                        HttpMethod.PATCH,
+//                        httpEntity, // use dto here
+//                        FakeStoreProductResponseDto.class
+//                );
+//
+//        FakeStoreProductResponseDto responseDto = responseEntity.getBody();
 
         return null;
     }
